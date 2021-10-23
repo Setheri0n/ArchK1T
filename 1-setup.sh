@@ -119,7 +119,8 @@ PKGS=(
 'kdecoration' 			    			#
 'kdenetwork-filesharing'    			#
 'kdeplasma-addons' 		    			#
-'kdesdk-thumbnailers'					#
+'kdesdk-thumbnailers' 					#
+'libdbusmenu-glib'					    #
 'kdialog' 								#
 'keychain' 								#
 'kfind' 								#
