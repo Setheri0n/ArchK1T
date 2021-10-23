@@ -158,6 +158,7 @@ PKGS=(
 'm4' 									#
 'make' 									#
 'milou' 								#
+'ntp'                                   #
 'nano' 									#
 'neofetch' 								#
 'networkmanager' 						#
@@ -278,3 +279,6 @@ then
 else
 	echo "You are already a user proceed with aur installs"
 fi
+echo "--------------------------------------"
+echo "     SYSTEM READY FOR 2-users         "
+echo "--------------------------------------"

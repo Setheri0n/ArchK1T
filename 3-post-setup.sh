@@ -24,13 +24,10 @@ EOF
 
 # ------------------------------------------------------------------------
 
-echo -e "\nEnabling the cups service daemon so we can print"
+echo -e "\nEnabling the cups service daemon so we can print and sync time and allow networking"
 
 systemctl enable cups.service
 sudo ntpd -qg
-sudo systemctl enable ntpd.service
-sudo systemctl disable dhcpcd.service
-sudo systemctl stop dhcpcd.service
 sudo systemctl enable NetworkManager.service
 
 echo ###############################################################################

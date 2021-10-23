@@ -27,7 +27,6 @@ echo "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt
 
-
 echo -e "\nInstalling prereqs...\n$HR"
 pacman -S --noconfirm gptfdisk btrfs-progs
 
@@ -106,5 +105,5 @@ EOF
 cp -R ~/ArchK1T /mnt/root/
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo "--------------------------------------"
-echo "     SYSTEM READY FOR 0-setup         "
+echo "     SYSTEM READY FOR 1-setup         "
 echo "--------------------------------------"
