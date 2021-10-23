@@ -94,7 +94,7 @@ echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 echo "--------------------------------------"
 echo "   Bootloader Systemd Installation    "
 echo "--------------------------------------"
-bootctl install --esp-path=/mnt/boot
+bootctl --esp-path=/mnt/boot/efi --boot-path=/boot install
 [ ! -d "/mnt/boot/loader/entries" ] && mkdir -p /mnt/boot/loader/entries
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux  
