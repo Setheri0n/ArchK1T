@@ -52,183 +52,184 @@ pacman -Sy --noconfirm
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
-'appimagelauncher' #A helper for intergrating AppImages
-'alsa-plugins' # audio plugins
-'alsa-utils' # audio utils
-'ark' # compression
-'audiocd-kio' #KDE audiocd tool (might remove if not needed)
-'autoconf' # build
-'automake' # build
-'base' #base files
-'bash-completion' #bash completion
-'bind' #network tool
-'binutils' #programing tool
-'bison' #parser tool
-'bluedevil' #bluetooth
-'bluez' #bluetooth
-'bluez-libs' #bluetooth
-'breeze' #themes
-'breeze-gtk' #themes
-'bridge-utils' #thems
-'btrfs-progs' #btrfs
-'celluloid' # video players
-'code' # Visual Studio code
-'cronie'
-'cups'
-'dhcpcd'
-'dialog'
-'discover'
-'dmidecode'
-'dnsmasq'
-'dolphin'
-'dosfstools'
-'drkonqi'
-'edk2-ovmf'
-'efibootmgr' # EFI boot
-'egl-wayland'
-'exfat-utils'
-'flex'
-'fuse2'
-'fuse3'
-'fuseiso'
-'gamemode' #Ferallnteractive Gamemode
-'gcc'
-'gimp' # Photo editing
-'git'
-'gparted' # partition management
-'gptfdisk'
-'groff'
-'grub' #bootloader
-'grub-customizer' #boot customizer
-'gst-libav'
-'gst-plugins-good'
-'gst-plugins-ugly'
-'haveged'
-'htop'
-'iptables-nft'
-'jdk-openjdk' # Java 17
-'kactivitymanagerd'
-'kate'
-'kvantum-qt5'
-'kcalc'
-'kcharselect'
-'kcron'
-'kde-cli-tools'
-'kde-gtk-config'
-'kdecoration'
-'kdenetwork-filesharing'
-'kdeplasma-addons'
-'kdesdk-thumbnailers'
-'kdialog'
-'keychain'
-'kfind'
-'kgamma5'
-'kgpg'
-'khotkeys'
-'kinfocenter'
-'kitty'
-'kmenuedit'
-'kmix'
-'konsole'
-'kscreen'
-'kscreenlocker'
-'ksshaskpass'
-'ksystemlog'
-'ksystemstats'
-'kwallet-pam'
-'kwalletmanager'
-'kwayland-integration'
-'kwayland-server'
-'kwin'
-'kwrite'
-'kwrited'
-'layer-shell-qt'
-'libguestfs'
-'libkscreen'
-'libksysguard'
-'libnewt'
-'libtool'
-'linux'
-'linux-firmware'
-'linux-headers'
-'lsof'
-'lutris'
-'lzop'
-'m4'
-'make'
-'milou'
-'nano'
-'neofetch'
-'networkmanager'
-'ntfs-3g'
-'okular'
-'openbsd-netcat'
-'openssh'
-'os-prober' #grub os proper to find other os
-'oxygen'
-'p7zip'
-'pacman-contrib'
-'patch'
-'picom'
-'pkgconf'
-'plasma-browser-integration'
-'plasma-desktop'
-'plasma-disks'
-'plasma-firewall'
-'plasma-integration'
-'plasma-nm'
-'plasma-pa'
-'plasma-sdk'
-'plasma-systemmonitor'
-'plasma-thunderbolt'
-'plasma-vault'
-'plasma-workspace'
-'plasma-workspace-wallpapers'
-'polkit-kde-agent'
-'powerdevil'
-'powerline-fonts'
-'print-manager'
-'pulseaudio'
-'pulseaudio-alsa'
-'pulseaudio-bluetooth'
-'python-pip'
-'rsync'
-'sddm'
-'sddm-kcm'
-'snapper'
-'spectacle'
-'steam'
-'sudo'
-'swtpm'
-'synergy'
-'systemsettings'
-'terminus-font'
-'texinfo'
-'traceroute'
-'ufw'
-'unrar'
-'unzip'
-'usbutils'
-'vde2'
-'vim'
-'virt-manager'
-'virt-viewer'
-'wget'
-'which'
-'Wine-Staging'
-'wine-gecko'
-'wine-mono'
-'winetricks'
-'xdg-desktop-portal-kde'
-'xdg-user-dirs'
-'xorg'
-'xorg-server'
-'xorg-xinit'
-'zeroconf-ioslave'
-'zip'
-'zsh'
-'zsh-syntax-highlighting'
-'zsh-autosuggestions'
+	
+'base' 					    			# base files
+'appimagelauncher' 		    			# A helper for intergrating AppImages
+'alsa-plugins' 			    			# audio plugins
+'alsa-utils' 			    			# audio utils
+'ark' 					    			# compression
+'audiocd-kio' 			    			# KDE audiocd tool (might remove if not needed)
+'autoconf' 				    			# build
+'automake' 				    			# build
+'bash-completion' 		    			# Tab completion for Bash
+'bind' 					    			# network tool
+'binutils' 				    			# programing tool
+'bison' 				    			# parser tool
+'bluedevil' 			    			# bluetooth
+'bluez' 				    			# bluetooth
+'bluez-libs' 			    			# bluetooth
+'breeze' 				    			# Themes
+'breeze-gtk' 			    			# 
+'bridge-utils' 			    			# 
+'btrfs-progs' 			    			# btrfs
+'celluloid' 			    			# video players
+'code' 					    			# Visual Studio code
+'cronie' 				    			#
+'cups' 					    			#
+'dhcpcd' 				    			#
+'dialog' 				    			#
+'discover' 				    			#
+'dmidecode' 			    			#
+'dnsmasq' 				    			#
+'dolphin' 				    			#
+'dosfstools' 			    			#
+'drkonqi' 				    			#
+'edk2-ovmf' 			    			#
+'efibootmgr' 			    			# EFI boot
+'egl-wayland' 			    			#
+'exfat-utils' 			    			#
+'flex' 					    			# 
+'fuse2' 				    			#
+'fuse3' 				    			#
+'fuseiso' 				    			#
+'gamemode' 				    			# Ferallnteractive Gamemode
+'gcc'  					    			#
+'gimp' 					    			# Photo editing
+'git' 					    			#
+'gparted' 				    			# partition management
+'gptfdisk' 				    			#
+'groff' 				    			#
+'grub' 					    			# bootloader
+'grub-customizer' 		    			# boot customizer
+'gst-libav' 			    			#
+'gst-plugins-good' 		    			#
+'gst-plugins-ugly' 		    			#
+'haveged' 				    			#
+'htop' 					    			#
+'iptables-nft' 			    			#
+'jdk-openjdk' 			    			# Java latest
+'kactivitymanagerd' 	    			#
+'kate' 					    			#
+'kvantum-qt5' 			    			#
+'kcalc' 				    			#
+'kcharselect' 			    			#
+'kcron' 				    			#
+'kde-cli-tools' 		    			#
+'kde-gtk-config' 		    			#
+'kdecoration' 			    			#
+'kdenetwork-filesharing'    			#
+'kdeplasma-addons' 		    			#
+'kdesdk-thumbnailers'					#
+'kdialog' 								#
+'keychain' 								#
+'kfind' 								#
+'kgamma5' 								#
+'kgpg' 									#
+'khotkeys' 								#
+'kinfocenter' 							#
+'kitty' 								#
+'kmenuedit' 							#
+'kmix' 									#
+'konsole' 								#
+'kscreen' 								#
+'kscreenlocker' 						#
+'ksshaskpass' 							#
+'ksystemlog' 							#
+'ksystemstats' 							#
+'kwallet-pam' 							#
+'kwalletmanager' 						#
+'kwayland-integration' 					#
+'kwayland-server' 						#
+'kwin' 									#
+'kwrite' 								#
+'kwrited' 								#
+'layer-shell-qt' 						#
+'libguestfs' 							#
+'libkscreen' 							#
+'libksysguard' 							#
+'libnewt' 								#
+'libtool' 								#
+'linux' 								#
+'linux-firmware' 						#
+'linux-headers' 						#
+'lsof' 									#
+'lutris' 								#
+'lzop' 									#
+'m4' 									#
+'make' 									#
+'milou' 								#
+'nano' 									#
+'neofetch' 								#
+'networkmanager' 						#
+'ntfs-3g' 								#
+'okular' 								#
+'openbsd-netcat' 						#
+'openssh' 								#
+'os-prober' 							#grub os proper to find other os
+'oxygen' 								#
+'p7zip' 								#
+'pacman-contrib' 						#
+'patch' 								#
+'picom' 								#
+'pkgconf' 								#
+'plasma-browser-integration' 			#
+'plasma-desktop' 						#
+'plasma-disks' 							#
+'plasma-firewall' 						#
+'plasma-integration' 					#
+'plasma-nm' 							#
+'plasma-pa' 							#
+'plasma-sdk' 							#
+'plasma-systemmonitor' 					#
+'plasma-thunderbolt' 					#
+'plasma-vault' 							#
+'plasma-workspace' 						#
+'plasma-workspace-wallpapers' 			#
+'polkit-kde-agent' 						#
+'powerdevil' 							#
+'powerline-fonts' 						#
+'print-manager' 						#
+'pulseaudio' 							#
+'pulseaudio-alsa' 						#
+'pulseaudio-bluetooth' 					#
+'python-pip' 							#
+'rsync' 								#
+'sddm' 									#
+'sddm-kcm' 								#
+'snapper' 								#
+'spectacle' 							#
+'steam' 								#
+'sudo' 									#
+'swtpm' 								#
+'synergy' 								#
+'systemsettings' 						#
+'terminus-font' 						#
+'texinfo' 								#
+'traceroute' 							#
+'ufw' 									#
+'unrar' 								#
+'unzip' 								#
+'usbutils' 								#
+'vde2' 									#
+'vim' 									#
+'virt-manager' 							#
+'virt-viewer' 							#
+'wget' 									#
+'which' 								#
+'Wine-Staging' 							#
+'wine-gecko' 							#
+'wine-mono' 							#
+'winetricks' 							#
+'xdg-desktop-portal-kde' 				#
+'xdg-user-dirs' 						#
+'xorg' 									#
+'xorg-server' 							#
+'xorg-xinit' 							#
+'zeroconf-ioslave' 						#
+'zip' 									#
+'zsh' 									#
+'zsh-syntax-highlighting' 				#
+'zsh-autosuggestions' 					#
 )
 
 for PKG in "${PKGS[@]}"; do
