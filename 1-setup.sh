@@ -52,6 +52,7 @@ pacman -Sy --noconfirm
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
+'appimagelauncher' #A helper for intergrating AppImages
 'alsa-plugins' # audio plugins
 'alsa-utils' # audio utils
 'ark' # compression
