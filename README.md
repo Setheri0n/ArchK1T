@@ -1,4 +1,4 @@
-# ArchTitus Installer Script
+# ArchK1T Installer Script
 
 <img src="https://i.imgur.com/YiNMnan.png" />
 
@@ -9,17 +9,15 @@ This README contains the steps I do to install and configure a fully-functional 
 
 Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with Ventoy or Etcher
 
-If you don't want to build using this script I did create an image @ <https://www.christitus.com/arch-titus>
-
 ## Boot Arch ISO
 
 From initial Prompt type the following commands:
 
 ```
 pacman -Sy git
-git clone https://github.com/ChrisTitusTech/ArchTitus
-cd ArchTitus
-./archtitus.sh
+git clone https://github.com/Setheri0n/ArchK1T
+cd ArchK1T
+./archK1T.sh
 ```
 
 ### System Description
@@ -32,7 +30,7 @@ __[Arch Linux Installation Guide](https://github.com/rickellis/Arch-Linux-Instal
 ### No Wifi
 
 ```bash
-sudo wifi-menu`
+sudo wifi-menu
 ```
 
 ## Credits
