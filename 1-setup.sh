@@ -253,8 +253,8 @@ case "$proc_type" in
 		proc_ucode=amd-ucode.img
 		;;
 esac
-	
-# Graphics Drivers find and install
+
+# Graphics Drivers search and install
 if lspci | grep -E "NVIDIA|GeForce"; then
     pacman -S nvidia --noconfirm --needed
 	nvidia-xconfig
