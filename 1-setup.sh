@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-#-------------------------------------------------------------------------
-#   █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-#  ██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-#  ███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-#  ██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-#  ██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-#  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
-#-------------------------------------------------------------------------
+#-----------------------------------#
+#  ___            _    _ __ _  ___  #
+# | . | _ _  ___ | |_ | / // ||_ _| #
+# |   || '_>/ | '| . ||  \ | | | |  #
+# |_|_||_|  \_|_.|_|_||_\_\|_| |_|  #
+#                                   #
+#-----------------------------------#
 echo "--------------------------------------"
 echo "--          Network Setup           --"
 echo "--------------------------------------"
@@ -33,7 +32,7 @@ echo "       Setup Language to US and set locale       "
 echo "-------------------------------------------------"
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
-timedatectl --no-ask-password set-timezone America/Chicago
+timedatectl --no-ask-password set-timezone America/Los_Angeles
 timedatectl --no-ask-password set-ntp 1
 localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="" LC_TIME="en_US.UTF-8"
 
@@ -56,23 +55,22 @@ PKGS=(
 'alsa-plugins' # audio plugins
 'alsa-utils' # audio utils
 'ark' # compression
-'audiocd-kio' 
+'audiocd-kio' #KDE audiocd tool (might remove if not needed)
 'autoconf' # build
 'automake' # build
-'base'
-'bash-completion'
-'bind'
-'binutils'
-'bison'
-'bluedevil'
-'bluez'
-'bluez-libs'
-'breeze'
-'breeze-gtk'
-'bridge-utils'
-'btrfs-progs'
+'base' #base files
+'bash-completion' #bash completion
+'bind' #network tool
+'binutils' #programing tool
+'bison' #parser tool
+'bluedevil' #bluetooth
+'bluez' #bluetooth
+'bluez-libs' #bluetooth
+'breeze' #themes
+'breeze-gtk' #themes
+'bridge-utils' #thems
+'btrfs-progs' #btrfs
 'celluloid' # video players
-'cmatrix'
 'code' # Visual Studio code
 'cronie'
 'cups'
@@ -92,15 +90,15 @@ PKGS=(
 'fuse2'
 'fuse3'
 'fuseiso'
-'gamemode'
+'gamemode' #Ferallnteractive Gamemode
 'gcc'
 'gimp' # Photo editing
 'git'
 'gparted' # partition management
 'gptfdisk'
 'groff'
-'grub'
-'grub-customizer'
+'grub' #bootloader
+'grub-customizer' #boot customizer
 'gst-libav'
 'gst-plugins-good'
 'gst-plugins-ugly'
@@ -165,7 +163,7 @@ PKGS=(
 'okular'
 'openbsd-netcat'
 'openssh'
-'os-prober'
+'os-prober' #grub os proper to find other os
 'oxygen'
 'p7zip'
 'pacman-contrib'
@@ -253,6 +251,7 @@ case "$proc_type" in
 		proc_ucode=amd-ucode.img
 		;;
 esac	
+#Display Server Xorg or Wayland
 
 # Graphics Drivers find and install
 if lspci | grep -E "NVIDIA|GeForce"; then
@@ -267,14 +266,14 @@ fi
 echo -e "\nDone!\n"
 if ! source install.conf; then
 	read -p "Please enter username:" username
-echo "username=$username" >> ${HOME}/ArchTitus/install.conf
+echo "username=$username" >> ${HOME}/ArchK1T/install.conf
 fi
 if [ $(whoami) = "root"  ];
 then
     useradd -m -G wheel,libvirt -s /bin/bash $username 
 	passwd $username
-	cp -R /root/ArchTitus /home/$username/
-    chown -R $username: /home/$username/ArchTitus
+	cp -R /root/ArchK1T /home/$username/
+    chown -R $username: /home/$username/ArchK1T
 else
 	echo "You are already a user proceed with aur installs"
 fi
