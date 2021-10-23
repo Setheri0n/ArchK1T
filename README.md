@@ -8,7 +8,7 @@ This README contains the steps I do to install and configure a fully-functional 
 ---
 ## Create Arch ISO or Use Image
 
-Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with Ventoy or Etcher
+Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with refus or Etcher
 
 ## Boot Arch ISO
 

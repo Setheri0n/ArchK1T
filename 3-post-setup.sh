@@ -32,11 +32,11 @@ sudo systemctl enable ntpd.service
 sudo systemctl disable dhcpcd.service
 sudo systemctl stop dhcpcd.service
 sudo systemctl enable NetworkManager.service
-echo "
-###############################################################################
-# Cleaning
-###############################################################################
-"
+
+echo ###############################################################################
+echo #                           Cleaning                                          #
+echo ###############################################################################
+
 # Remove no password sudo rights
 sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 # Add sudo rights
@@ -44,8 +44,7 @@ sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Replace in the same state
 cd $pwd
-echo "
-###############################################################################
-# Done - Please Eject Install Media and Reboot
-###############################################################################
-"
+
+echo ###############################################################################
+echo #          Done - Please Eject Install Media and Reboot                       #
+echo ###############################################################################

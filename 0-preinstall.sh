@@ -8,7 +8,7 @@
 #-----------------------------------#
 
 echo "-------------------------------------------------"
-echo "Setting up mirrors for optimal download          "
+echo "     Setting up mirrors for optimal download     "
 echo "-------------------------------------------------"
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
@@ -17,13 +17,13 @@ setfont ter-v22b
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 pacman -S --noconfirm reflector rsync
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo -e "-----------------------------------"
-echo -e "  ___            _    _ __ _  ___  "
-echo -e " | . | _ _  ___ | |_ | / // ||_ _| "
-echo -e " |   || '_>/ | '| . ||  \ | | | |  "
-echo -e " |_|_||_|  \_|_.|_|_||_\_\|_| |_|  "
-echo -e "                                   "  
-echo -e "-----------------------------------"
+echo "-----------------------------------"
+echo "  ___            _    _ __ _  ___  "
+echo " | . | _ _  ___ | |_ | / // ||_ _| "
+echo " |   || '_>/ | '| . ||  \ | | | |  "
+echo " |_|_||_|  \_|_.|_|_||_\_\|_| |_|  "
+echo "                                   "  
+echo "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt
 
@@ -32,7 +32,7 @@ echo -e "\nInstalling prereqs...\n$HR"
 pacman -S --noconfirm gptfdisk btrfs-progs
 
 echo "-------------------------------------------------"
-echo "-------select your disk to format----------------"
+echo "         select your disk to format              "
 echo "-------------------------------------------------"
 lsblk
 echo "Please enter disk to work on: (/dev/nvme0n1)"
@@ -87,13 +87,13 @@ mkdir /mnt/boot/efi
 mount -t vfat -L UEFISYS /mnt/boot/
 
 echo "--------------------------------------"
-echo "-- Arch Install on Main Drive       --"
+echo "     Arch Install on Main Drive       "
 echo "--------------------------------------"
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo archlinux-keyring wget libnewt --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 echo "--------------------------------------"
-echo "-- Bootloader Systemd Installation  --"
+echo "   Bootloader Systemd Installation    "
 echo "--------------------------------------"
 bootctl install --esp-path=/mnt/boot
 [ ! -d "/mnt/boot/loader/entries" ] && mkdir -p /mnt/boot/loader/entries
@@ -106,5 +106,5 @@ EOF
 cp -R ~/ArchK1T /mnt/root/
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo "--------------------------------------"
-echo "--   SYSTEM READY FOR 0-setup       --"
+echo "     SYSTEM READY FOR 0-setup         "
 echo "--------------------------------------"
