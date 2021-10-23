@@ -35,7 +35,7 @@ echo "-------------------------------------------------"
 echo "-------select your disk to format----------------"
 echo "-------------------------------------------------"
 lsblk
-echo "Please enter disk to work on: (/dev/nvme0n1 )"
+echo "Please enter disk to work on: (/dev/nvme0n1)"
 read DISK
 echo "THIS WILL FORMAT AND DELETE ALL DATA ON THE DISK"
 read -p "are you sure you want to continue (Y/N):" formatdisk
