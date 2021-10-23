@@ -52,7 +52,7 @@ pacman -Sy --noconfirm
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
-	
+
 'base' 					    			# base files
 'appimagelauncher' 		    			# A helper for intergrating AppImages
 'alsa-plugins' 			    			# audio plugins
@@ -165,7 +165,7 @@ PKGS=(
 'okular' 								#
 'openbsd-netcat' 						#
 'openssh' 								#
-'os-prober' 							#grub os proper to find other os
+'os-prober' 							# grub helper to find other os's
 'oxygen' 								#
 'p7zip' 								#
 'pacman-contrib' 						#
@@ -252,9 +252,8 @@ case "$proc_type" in
 		pacman -S --noconfirm amd-ucode
 		proc_ucode=amd-ucode.img
 		;;
-esac	
-#Display Server Xorg or Wayland
-
+esac
+	
 # Graphics Drivers find and install
 if lspci | grep -E "NVIDIA|GeForce"; then
     pacman -S nvidia --noconfirm --needed
