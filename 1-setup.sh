@@ -278,4 +278,3 @@ then
 else
 	echo "You are already a user proceed with aur installs"
 fi
-
