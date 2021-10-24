@@ -22,7 +22,7 @@ echo "  ___            _    _ __ _  ___  "
 echo " | . | _ _  ___ | |_ | / // ||_ _| "
 echo " |   || '_>/ | '| . ||  \ | | | |  "
 echo " |_|_||_|  \_|_.|_|_||_\_\|_| |_|  "
-echo "                                   "  
+echo "   Waiting to select Hard disk     "  
 echo "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt
@@ -47,7 +47,7 @@ echo "--------------------------------------"
 
 # disk prep
 sgdisk -Z ${DISK} # zap all on disk
-#dd if=/dev/zero of=${DISK} bs=1M count=200 conv=fdatasync status=progress
+dd if=/dev/zero of=${DISK} bs=1M count=200 conv=fdatasync status=progress
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 
 # create partitions
