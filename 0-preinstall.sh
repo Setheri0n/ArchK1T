@@ -91,11 +91,6 @@ echo "     Arch Install on Main Drive       "
 echo "--------------------------------------"
 genfstab -U /mnt >> /mnt/etc/fstab
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo archlinux-keyring wget libnewt --noconfirm --needed
-echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-echo "--------------------------------------"
-echo "   Bootloader Systemd Installation    "
-echo "--------------------------------------"
-bootctl install --esp-path=/
 [ ! -d "/mnt/boot/loader/entries" ] && mkdir -p /mnt/boot/loader/entries
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux  
@@ -103,6 +98,13 @@ linux /vmlinuz-linux
 initrd  /initramfs-linux.img  
 options root=LABEL=ROOT rw rootflags=subvol=@
 EOF
+echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
+echo "--------------------------------------"
+echo "   Bootloader Grub Installation       "
+echo "--------------------------------------"
+pacman -S grub grub-btrfs efibootmgr --noconfirm --needed
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --boot-loader-id=GRUB
+grub-mkconifg -o /boot/grub/grub.cfg
 cp -R ~/ArchK1T /mnt/root/
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo "--------------------------------------"
