@@ -84,7 +84,7 @@ mount -o subvol=/@ -L ROOT /mnt
 mkdir /mnt/
 mkdir /mnt/boot/efi
 mount -o vfat /mnt/boot/efi
-
+arch-chroot /mnt
 echo "--------------------------------------"
 echo "     Arch Install on Main Drive       "
 echo "--------------------------------------"
