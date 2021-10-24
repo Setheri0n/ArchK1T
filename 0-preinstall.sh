@@ -26,9 +26,10 @@ echo -e "   Waiting to select Hard disk     "
 echo -e "        Please standby........     "
 echo -e "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+mkdir /mnt
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S btrfs-progs --noconfirm --needed
+pacman -S gptfdisk btrfs-progs --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "         select your disk to format              "
@@ -40,7 +41,7 @@ echo "THIS WILL FORMAT AND DELETE ALL DATA ON THE DISK"
 read -p "are you sure you want to continue (Y/N):" formatdisk
 case $formatdisk in
 
-y|YES)
+y|Y|yes|Yes|YES)
 echo "--------------------------------------"
 echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
@@ -78,11 +79,12 @@ umount /mnt
 ;;
 esac
 
-# mount target /
+# mount target
 mount -t btrfs -o subvol=@ -L ROOT /mnt
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
-mount -t vfat -L UEFISYS /mnt/boot/
+mount -t vfat -L EFI /mnt/boot/
+
 echo "--------------------------------------"
 echo "     Arch Install on Main Drive       "
 echo "--------------------------------------"
