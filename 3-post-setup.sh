@@ -27,8 +27,8 @@ EOF
 echo -e "\nEnabling the cups service daemon so we can print and sync time and allow networking"
 
 systemctl enable cups.service
-sudo ntpd -qg
 sudo systemctl enable NetworkManager.service
+sudo ntpd -qg
 
 echo ###############################################################################
 echo #                           Cleaning                                          #
