@@ -12,7 +12,7 @@ echo "     Setting up mirrors for optimal download     "
 echo "-------------------------------------------------"
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
-pacman -Sy --noconfirm pacman-contrib terminus-font
+pacman -Sy pacman-contrib terminus-font --noconfirm --needed
 setfont ter-v22b
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 pacman -S --noconfirm reflector rsync
@@ -26,10 +26,9 @@ echo -e "   Waiting to select Hard disk     "
 echo -e "        Please standby........     "
 echo -e "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
-mkdir /mnt
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S --noconfirm gptfdisk btrfs-progs
+pacman -S chgptfdisk btrfs-progs --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "         select your disk to format              "
@@ -92,7 +91,6 @@ echo "--------------------------------------"
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo archlinux-keyring wget libnewt --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-arch-chroot /mnt
 echo "--------------------------------------"
 echo "   Bootloader Grub Installation       "
 echo "--------------------------------------"
