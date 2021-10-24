@@ -12,23 +12,24 @@ echo "     Setting up mirrors for optimal download     "
 echo "-------------------------------------------------"
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
-pacman -S --noconfirm pacman-contrib terminus-font
+pacman -Sy --noconfirm pacman-contrib terminus-font
 setfont ter-v22b
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 pacman -S --noconfirm reflector rsync
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo "-----------------------------------"
-echo "  ___            _    _ __ _  ___  "
-echo " | . | _ _  ___ | |_ | / // ||_ _| "
-echo " |   || '_>/ | '| . ||  \ | | | |  "
-echo " |_|_||_|  \_|_.|_|_||_\_\|_| |_|  "
-echo "   Waiting to select Hard disk     "  
-echo "-----------------------------------"
+echo -e "-----------------------------------"
+echo -e "  ___            _    _ __ _  ___  "
+echo -e " | . | _ _  ___ | |_ | / // ||_ _| "
+echo -e " |   || '_>/ | '| . ||  \ | | | |  "
+echo -e " |_|_||_|  \_|_.|_|_||_\_\|_| |_|  "
+echo -e "   Waiting to select Hard disk     "
+echo -e "        Please standby........     "
+echo -e "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S --noconfirm gptfdisk btrfs-progs
+pacman -S --noconfirm gptfdisk btrfs-progs grub-btrfs grub
 
 echo "-------------------------------------------------"
 echo "         select your disk to format              "
@@ -51,7 +52,7 @@ dd if=/dev/zero of=${DISK} bs=1M count=200 conv=fdatasync status=progress
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 
 # create partitions
-sgdisk -n 1:0:+1000M ${DISK} # partition 1 (UEFI SYS), default start block, 512MB
+sgdisk -n 1:0:+300M ${DISK} # partition 1 (UEFI SYS), default start block, 512MB
 sgdisk -n 2:0:0     ${DISK} # partition 2 (Root), default start, remaining
 
 # set partition types
@@ -94,7 +95,7 @@ echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 echo "--------------------------------------"
 echo "   Bootloader Systemd Installation    "
 echo "--------------------------------------"
-bootctl install --esp-path=/mnt/efi --boot-path=/mnt/boot
+bootctl install --esp-path=/mnt/boot/efi 
 [ ! -d "/mnt/boot/loader/entries" ] && mkdir -p /mnt/boot/loader/entries
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux  
