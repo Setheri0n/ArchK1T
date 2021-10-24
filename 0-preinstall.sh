@@ -15,7 +15,7 @@ timedatectl set-ntp true
 pacman -Sy pacman-contrib terminus-font --noconfirm --needed
 setfont ter-v22b
 sed -i 's/^#Para/Para/' /etc/pacman.conf
-pacman -S --noconfirm reflector rsync
+pacman -S reflector rsync --noconfirm --needed
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "-----------------------------------"
 echo -e "  ___            _    _ __ _  ___  "
@@ -28,7 +28,7 @@ echo -e "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S chgptfdisk btrfs-progs --noconfirm --needed
+pacman -S gptfdisk btrfs-progs --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "         select your disk to format              "
