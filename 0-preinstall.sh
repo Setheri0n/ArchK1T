@@ -84,7 +84,7 @@ esac
 mount -o subvol=/@ -L ROOT /mnt
 mkdir /mnt/
 mkdir /mnt/boot/efi
-mount "{DISK}2" /mnt/boot/efi
+mount -o vfat /mnt/boot/efi
 
 echo "--------------------------------------"
 echo "     Arch Install on Main Drive       "
