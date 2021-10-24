@@ -28,7 +28,7 @@ echo -e "-----------------------------------"
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S gptfdisk btrfs-progs --noconfirm --needed
+pacman -S btrfs-progs --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "         select your disk to format              "
@@ -72,19 +72,17 @@ mkfs.vfat -F32 -n "EFI" "${DISK}1"
 mkfs.btrfs -L "ROOT" "${DISK}2" -f
 mount -t btrfs "${DISK}2" /mnt
 fi
-cd /mnt
-btrfs subvolume create /@
+ls /mnt | xargs btrfs subvolume delete
+btrfs subvolume create /mnt/@
 umount /mnt
-cd..
 ;;
 esac
 
 # mount target /
-mount -o subvol=/@ -L ROOT /mnt
-mkdir /mnt/
+mount -t btrfs -o subvol=@ -L ROOT /mnt
+mkdir /mnt/boot
 mkdir /mnt/boot/efi
-mount -o vfat /mnt/boot/efi
-arch-chroot /mnt
+mount -t vfat -L UEFISYS /mnt/boot/
 echo "--------------------------------------"
 echo "     Arch Install on Main Drive       "
 echo "--------------------------------------"
@@ -106,8 +104,6 @@ options root=LABEL=ROOT rw rootflags=subvol=@
 EOF
 cp -R ~/ArchK1T /mnt/root/
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
-exit
-umount -R /mnt
 echo "--------------------------------------"
 echo "     SYSTEM READY FOR 1-setup         "
 echo "--------------------------------------"
