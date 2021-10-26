@@ -8,7 +8,6 @@
 #-----------------------------------#
 
 echo -e "\nINSTALLING AUR SOFTWARE\n"
-# You can solve users running this script as root with this and then doing the same for the next for statement. However I will leave this up to you.
 
 echo "CLONING: YAY"
 cd ~
@@ -26,6 +25,7 @@ PKGS=(
 'awesome-terminal-fonts'
 'brave-bin' # Brave Browser
 'dxvk-bin' # DXVK DirectX to Vulcan
+'github-desktop-bin' # Github Desktop sync
 'lightly-git'
 'mangohud' # Gaming FPS Counter
 'mangohud-common'
@@ -36,6 +36,7 @@ PKGS=(
 'nordic-theme'
 'noto-fonts-emoji'
 'papirus-icon-theme'
+'plasma-pa'
 'ocs-url' # install packages from websites
 'sddm-nordic-theme-git'
 'snapper-gui-git'
@@ -60,6 +61,3 @@ konsave -a kde
 
 echo -e "\nDone!\n"
 exit
-echo "--------------------------------------"
-echo "     SYSTEM READY FOR 3-Post-setup    "
-echo "--------------------------------------"
