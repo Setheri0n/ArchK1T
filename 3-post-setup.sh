@@ -24,15 +24,17 @@ EOF
 
 # ------------------------------------------------------------------------
 
-echo -e "\nEnabling the cups service daemon so we can print and sync time and allow networking"
+echo -e "\nEnabling needed services"
 
 systemctl enable cups.service
-sudo systemctl enable NetworkManager.service
 sudo ntpd -qg
+sudo systemctl enable ntpd.service
+sudo systemctl enable NetworkManager.service
+sudo systemctl enable bluetooth
 
-echo ###############################################################################
-echo #                           Cleaning                                          #
-echo ###############################################################################
+echo "----------------------------------------------"
+echo "           Cleaning up system                 "
+echo "----------------------------------------------"
 
 # Remove no password sudo rights
 sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -41,7 +43,7 @@ sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Replace in the same state
 cd $pwd
-echo 
-echo ###############################################################################
-echo #          Done - Please Eject Install Media and Reboot                       #
-echo ###############################################################################
+
+echo "-----------------------------------------------"
+echo "  Done - Please Eject Install Media and Reboot "
+echo "-----------------------------------------------"
