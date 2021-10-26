@@ -52,185 +52,133 @@ pacman -Sy --noconfirm
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
-
-'base' 					    			# base files
-'appimagelauncher' 		    			# A helper for intergrating AppImages
-'alsa-plugins' 			    			# audio plugins
-'alsa-utils' 			    			# audio utils
-'ark' 					    			# compression
-'audiocd-kio' 			    			# KDE audiocd tool (might remove if not needed)
-'autoconf' 				    			# build
-'automake' 				    			# build
-'bash-completion' 		    			# Tab completion for Bash
-'bind' 					    			# network tool
-'binutils' 				    			# programing tool
-'bison' 				    			# parser tool
-'bluedevil' 			    			# bluetooth
-'bluez' 				    			# bluetooth
-'bluez-libs' 			    			# bluetooth
-'breeze' 				    			# Themes
-'breeze-gtk' 			    			# 
-'bridge-utils' 			    			# 
-'btrfs-progs' 			    			# btrfs
-'celluloid' 			    			# video players
-'code' 					    			# Visual Studio code
-'cronie' 				    			#
-'cups' 					    			#
-'dhcpcd' 				    			#
-'dialog' 				    			#
-'discover' 				    			#
-'dmidecode' 			    			#
-'dnsmasq' 				    			#
-'dolphin' 				    			#
-'dosfstools' 			    			#
-'drkonqi' 				    			#
-'edk2-ovmf' 			    			#
-'efibootmgr' 			    			# EFI boot
-'egl-wayland' 			    			#
-'exfat-utils' 			    			#
-'flex' 					    			# 
-'fuse2' 				    			#
-'fuse3' 				    			#
-'fuseiso' 				    			#
-'gamemode' 				    			# Ferallnteractive Gamemode
-'gcc'  					    			#
-'gimp' 					    			# Photo editing
-'git' 					    			#
-'gparted' 				    			# partition management
-'gptfdisk' 				    			#
-'groff' 				    			#
-'grub' 					    			# bootloader
-'grub-customizer' 		    			# boot customizer
-'gst-libav' 			    			#
-'gst-plugins-good' 		    			#
-'gst-plugins-ugly' 		    			#
-'haveged' 				    			#
-'htop' 					    			#
-'iptables-nft' 			    			#
-'jdk-openjdk' 			    			# Java latest
-'kactivitymanagerd' 	    			#
-'kate' 					    			#
-'kvantum-qt5' 			    			#
-'kcalc' 				    			#
-'kcharselect' 			    			#
-'kcron' 				    			#
-'kde-cli-tools' 		    			#
-'kde-gtk-config' 		    			#
-'kdecoration' 			    			#
-'kdenetwork-filesharing'    			#
-'kdeplasma-addons' 		    			#
-'kdesdk-thumbnailers' 					#
-'kdialog' 								#
-'keychain' 								#
-'kfind' 								#
-'kgamma5' 								#
-'kgpg' 									#
-'khotkeys' 								#
-'kinfocenter' 							#
-'kitty' 								#
-'kmenuedit' 							#
-'kmix' 									#
-'konsole' 								#
-'kscreen' 								#
-'kscreenlocker' 						#
-'ksshaskpass' 							#
-'ksystemlog' 							#
-'ksystemstats' 							#
-'kwallet-pam' 							#
-'kwalletmanager' 						#
-'kwayland-integration' 					#
-'kwayland-server' 						#
-'kwin' 									#
-'kwrite' 								#
-'kwrited' 								#
-'layer-shell-qt' 						#
-'libguestfs' 							#
-'libkscreen' 							#
-'libksysguard' 							#
-'libnewt' 								#
-'libtool' 								#
-'linux' 								#
-'linux-firmware' 						#
-'linux-headers' 						#
-'lsof' 									#
-'lutris' 								#
-'lzop' 									#
-'m4' 									#
-'make' 									#
-'milou' 								#
-'ntp'                                   #
-'nano' 									#
-'neofetch' 								#
-'networkmanager' 						#
-'ntfs-3g' 								#
-'okular' 								#
-'openbsd-netcat' 						#
-'openssh' 								#
-'os-prober' 							# grub helper to find other os's
-'oxygen' 								#
-'p7zip' 								#
-'pacman-contrib' 						#
-'patch' 								#
-'picom' 								#
-'pkgconf' 								#
-'plasma-browser-integration' 			#
-'plasma-desktop' 						#
-'plasma-disks' 							#
-'plasma-firewall' 						#
-'plasma-integration' 					#
-'plasma-nm' 							#
-'plasma-pa' 							#
-'plasma-sdk' 							#
-'plasma-systemmonitor' 					#
-'plasma-thunderbolt' 					#
-'plasma-vault' 							#
-'plasma-workspace' 						#
-'plasma-workspace-wallpapers' 			#
-'polkit-kde-agent' 						#
-'powerdevil' 							#
-'powerline-fonts' 						#
-'print-manager' 						#
-'pulseaudio' 							#
-'pulseaudio-alsa' 						#
-'pulseaudio-bluetooth' 					#
-'python-pip' 							#
-'rsync' 								#
-'sddm' 									#
-'sddm-kcm' 								#
-'snapper' 								#
-'spectacle' 							#
-'steam' 								#
-'sudo' 									#
-'swtpm' 								#
-'synergy' 								#
-'systemsettings' 						#
-'terminus-font' 						#
-'texinfo' 								#
-'traceroute' 							#
-'ufw' 									#
-'unrar' 								#
-'unzip' 								#
-'usbutils' 								#
-'vde2' 									#
-'vim' 									#
-'virt-manager' 							#
-'virt-viewer' 							#
-'wget' 									#
-'which' 								#
-'Wine-Staging' 							#
-'wine-gecko' 							#
-'wine-mono' 							#
-'winetricks' 							#
-'xdg-desktop-portal-kde' 				#
-'xdg-user-dirs' 						#
-'xorg' 									#
-'xorg-server' 							#
-'xorg-xinit' 							#
-'zeroconf-ioslave' 						#
-'zip' 									#
-'zsh' 									#
-'zsh-syntax-highlighting' 				#
-'zsh-autosuggestions' 					#
+'mesa' # Essential Xorg First
+'xorg'
+'xorg-server'
+'xorg-apps'
+'xorg-drivers'
+'xorg-xkill'
+'xorg-xinit'
+'xterm'
+'plasma-desktop' # KDE Load second
+'alsa-plugins' # audio plugins
+'alsa-utils' # audio utils
+'ark' # compression
+'audiocd-kio' 
+'autoconf' # build
+'automake' # build
+'base'
+'bash-completion'
+'bind'
+'binutils'
+'bison'
+'bluedevil'
+'bluez'
+'bluez-libs'
+'breeze'
+'breeze-gtk'
+'bridge-utils'
+'btrfs-progs'
+'celluloid' # video players
+'cmatrix'
+'code' # Visual Studio code
+'cronie'
+'cups'
+'dialog'
+'discover'
+'dolphin'
+'dosfstools'
+'efibootmgr' # EFI boot
+'egl-wayland'
+'exfat-utils'
+'flex'
+'fuse2'
+'fuse3'
+'fuseiso'
+'gamemode'
+'gcc'
+'gimp' # Photo editing
+'git'
+'gparted' # partition management
+'gptfdisk'
+'grub'
+'grub-customizer'
+'gst-libav'
+'gst-plugins-good'
+'gst-plugins-ugly'
+'haveged'
+'htop'
+'iptables-nft'
+'jdk-openjdk' # Java 17
+'kate'
+'kvantum-qt5'
+'kde-gtk-config'
+'kitty'
+'konsole'
+'layer-shell-qt'
+'libnewt'
+'libtool'
+'linux'
+'linux-firmware'
+'linux-headers'
+'lsof'
+'lutris'
+'lzop'
+'m4'
+'make'
+'milou'
+'nano'
+'neofetch'
+'networkmanager'
+'ntfs-3g'
+'okular'
+'openbsd-netcat'
+'openssh'
+'os-prober'
+'oxygen'
+'p7zip'
+'pacman-contrib'
+'patch'
+'picom'
+'pkgconf'
+'powerline-fonts'
+'print-manager'
+'pulseaudio'
+'pulseaudio-alsa'
+'pulseaudio-bluetooth'
+'python-pip'
+'qemu'
+'rsync'
+'sddm'
+'sddm-kcm'
+'snapper'
+'spectacle'
+'steam'
+'sudo'
+'swtpm'
+'synergy'
+'systemsettings'
+'terminus-font'
+'traceroute'
+'ufw'
+'unrar'
+'unzip'
+'usbutils'
+'vim'
+'virt-manager'
+'virt-viewer'
+'wget'
+'which'
+'wine-gecko'
+'wine-mono'
+'winetricks'
+'xdg-desktop-portal-kde'
+'xdg-user-dirs'
+'zeroconf-ioslave'
+'zip'
+'zsh'
+'zsh-syntax-highlighting'
+'zsh-autosuggestions'
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -262,7 +210,7 @@ if lspci | grep -E "NVIDIA|GeForce"; then
 elif lspci | grep -E "Radeon"; then
     pacman -S xf86-video-amdgpu --noconfirm --needed
 elif lspci | grep -E "Integrated Graphics Controller"; then
-    pacman -S libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils --needed --noconfirm
+    pacman -S libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils xf86-video-qxl --needed --noconfirm
 fi
 
 echo -e "\nDone!\n"
@@ -279,6 +227,3 @@ then
 else
 	echo "You are already a user proceed with aur installs"
 fi
-echo "--------------------------------------"
-echo "     SYSTEM READY FOR 2-users         "
-echo "--------------------------------------"
